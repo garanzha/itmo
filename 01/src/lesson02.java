@@ -208,15 +208,52 @@ public class lesson02 {
             b = sum(i);
             for (int j = 1; j < 1000; j++)
                 if (b == sum(j)) {
-                    System.out.print(numNormalizer(i) + numNormalizer(j) + " ");
+                    System.out.print(numNormalizer(i,3) + numNormalizer(j,3) + " ");
                     a++;
                 }
         }
         System.out.println();
         System.out.println("Общее кол-во счастливых билетов: " + a);
         System.out.println("------------------------");
-    }
 
+        /*12) Электронные часы показывают время в формате от 00:00 до 23:59.
+        Подсчитать сколько раз за сутки случается так, что слева от двоеточия показывается симметричная комбинация для той,
+        что справа от двоеточия (например, 02:20, 11:11 или 15:51).*/
+        a = 0;
+        System.out.print("Симметричные комбинации: ");
+        for (int i=1; i<24; i++){
+            b=sum(i);
+            String s1=numNormalizer(i,2);
+            for (int j=1;j<52; j++){
+                String s2=numNormalizer(j,2);
+                if (b==sum(j) && s1.substring(0,1).equals(s2.substring(1,2))){
+                    a++;
+                    System.out.print(s1 + ":" + s2 + " ");
+                }
+            }
+        }
+        System.out.println();
+        System.out.println("Общее кол-во симметричных комбинаций: " + a);
+        System.out.println("------------------------");
+
+        /*13) В американской армии считается несчастливым число 13, а в японской — 4.
+        Перед международными учениями штаб российской армии решил исключить номера боевой техники,
+        содержащие числа 4 или 13 (например, 40123, 13313, 12345 или 13040), чтобы не смущать иностранных коллег.
+        Если в распоряжении армии имеется 100 тыс. единиц боевой техники и каждая боевая машина имеет номер от 00001 до 99999,
+        то сколько всего номеров придётся исключить?*/
+        a=0;
+        System.out.print("Несчастливые номера: ");
+        for (int i=1; i<100000;i++){
+            s =Integer.toString(i);
+            if (s.contains("13")||s.contains("4")){
+                a++;
+                System.out.print(numNormalizer(i, 5)+" ");
+            }
+        }
+        System.out.println();
+        System.out.println("Общее кол-во несчастливых номеров: " + a);
+        System.out.println("------------------------");
+    }
 
     //подсчет суммы всех цифр числа
     public static Integer sum(Integer num) {
@@ -228,15 +265,8 @@ public class lesson02 {
     }
 
     //функция добавления ведущих нолей к числу
-    public static String numNormalizer(Integer num) {
-        switch (Integer.toString(num).length()) {
-            case 1:
-                return "00" + num;
-            case 2:
-                return "0" + num;
-            default:
-                return "" + num;
-        }
+    public static String numNormalizer(Integer num, Integer base) {
+        return "0000000000".substring(10-base + Integer.toString(num).length())+num;
     }
 
 }
