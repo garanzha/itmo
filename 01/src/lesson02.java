@@ -268,7 +268,6 @@ public class lesson02 {
     public static String numNormalizer(Integer num, Integer base) {
         return "0000000000".substring(10-base + Integer.toString(num).length())+num;
     }
-
 }
 
 
