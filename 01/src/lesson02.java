@@ -192,7 +192,7 @@ public class lesson02 {
 
         /*9) Для введённого пользователем с клавиатуры натурального числа посчитайте сумму всех его цифр
         (заранее не известно сколько цифр будет в числе).*/
-        String s=scanner.next();
+        String s = scanner.next();
         System.out.println("Сумма всех цифр числа " + s + " равна:" + sum(Integer.parseInt(s)));
         System.out.println("------------------------");
 
@@ -208,7 +208,7 @@ public class lesson02 {
             b = sum(i);
             for (int j = 1; j < 1000; j++)
                 if (b == sum(j)) {
-                    System.out.print(numNormalizer(i,3) + numNormalizer(j,3) + " ");
+                    System.out.print(numNormalizer(i, 3) + numNormalizer(j, 3) + " ");
                     a++;
                 }
         }
@@ -221,12 +221,12 @@ public class lesson02 {
         что справа от двоеточия (например, 02:20, 11:11 или 15:51).*/
         a = 0;
         System.out.print("Симметричные комбинации: ");
-        for (int i=1; i<24; i++){
-            b=sum(i);
-            String s1=numNormalizer(i,2);
-            for (int j=1;j<52; j++){
-                String s2=numNormalizer(j,2);
-                if (b==sum(j) && s1.substring(0,1).equals(s2.substring(1,2))){
+        for (int i = 1; i < 24; i++) {
+            b = sum(i);
+            String s1 = numNormalizer(i, 2);
+            for (int j = 1; j < 52; j++) {
+                String s2 = numNormalizer(j, 2);
+                if (b == sum(j) && s1.substring(0, 1).equals(s2.substring(1, 2))) {
                     a++;
                     System.out.print(s1 + ":" + s2 + " ");
                 }
@@ -241,13 +241,13 @@ public class lesson02 {
         содержащие числа 4 или 13 (например, 40123, 13313, 12345 или 13040), чтобы не смущать иностранных коллег.
         Если в распоряжении армии имеется 100 тыс. единиц боевой техники и каждая боевая машина имеет номер от 00001 до 99999,
         то сколько всего номеров придётся исключить?*/
-        a=0;
+        a = 0;
         System.out.print("Несчастливые номера: ");
-        for (int i=1; i<100000;i++){
-            s =Integer.toString(i);
-            if (s.contains("13")||s.contains("4")){
+        for (int i = 1; i < 100000; i++) {
+            s = Integer.toString(i);
+            if (s.contains("13") || s.contains("4")) {
                 a++;
-                System.out.print(numNormalizer(i, 5)+" ");
+                System.out.print(numNormalizer(i, 5) + " ");
             }
         }
         System.out.println();
@@ -266,7 +266,7 @@ public class lesson02 {
 
     //функция добавления ведущих нолей к числу
     public static String numNormalizer(Integer num, Integer base) {
-        return "0000000000".substring(10-base + Integer.toString(num).length())+num;
+        return "0000000000".substring(10 - base + Integer.toString(num).length()) + num;
     }
 }
 
