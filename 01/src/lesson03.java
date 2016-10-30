@@ -191,34 +191,34 @@ public class lesson03 {
         требовать повторного ввода до тех пор, пока не будет указано корректное значение.*/
         String s;
         System.out.println("Введите целое чётное чило:");
-        while (true){
+        while (true) {
             Scanner scanner = new Scanner(System.in);
             s = scanner.next();
-            if (isNumEntered(s)){
-                if (Integer.parseInt(s)%2==0)
+            if (isNumEntered(s)) {
+                if (Integer.parseInt(s) % 2 == 0)
                     break;
                 else
                     System.out.println("Введённое число нечётное, попробуйте снова.");
             }
         }
-        int mas11[]=new int[Integer.parseInt(s)];
-        int mas11S[]=new int[2];//массив из двух элементов для ханения сумм положительных и отрицательных чисел
-        mas11S[0]=0;
-        mas11S[1]=0;
-        for(int i=0;i<mas11.length; i++){
-            mas11[i]=random.nextInt(11)-5;
-            if (mas11[i]<0)
-                mas11S[0]=mas11S[0]+Math.abs(mas11[i]);
+        int mas11[] = new int[Integer.parseInt(s)];
+        int mas11S[] = new int[2];//массив из двух элементов для ханения сумм положительных и отрицательных чисел
+        mas11S[0] = 0;
+        mas11S[1] = 0;
+        for (int i = 0; i < mas11.length; i++) {
+            mas11[i] = random.nextInt(11) - 5;
+            if (mas11[i] < 0)
+                mas11S[0] = mas11S[0] + Math.abs(mas11[i]);
             else
-                mas11S[1]=mas11S[1]+mas11[i];
+                mas11S[1] = mas11S[1] + mas11[i];
         }
         printMas(mas11);
-        if (mas11S[0]>mas11S[1])
-            System.out.println("Сумма левой части(" + mas11S[0]+ ") массива больше правой("+mas11S[1]+").");
-        else if (mas11S[0]<mas11S[1])
-            System.out.println("Сумма правой части(" + mas11S[1]+ ") массива больше левой("+mas11S[0]+").");
+        if (mas11S[0] > mas11S[1])
+            System.out.println("Сумма левой части(" + mas11S[0] + ") массива больше правой(" + mas11S[1] + ").");
+        else if (mas11S[0] < mas11S[1])
+            System.out.println("Сумма правой части(" + mas11S[1] + ") массива больше левой(" + mas11S[0] + ").");
         else
-            System.out.println("Сумма левой и правой частей массива равны("+mas11S[0]+").");
+            System.out.println("Сумма левой и правой частей массива равны(" + mas11S[0] + ").");
         System.out.println("------------------------");
 
         /*12) Программа должна создать массив из 12 случайных целых чисел из отрезка [-10;10] таким образом,
@@ -226,14 +226,14 @@ public class lesson03 {
         элементов должен быть случаен (т. е. не подходит вариант, когда в массиве постоянно выпадает сначала
         6 положительных, а потом 6 отрицательных чисел или же когда элементы постоянно чередуются через один и пр.).
         Вывести полученный массив на экран.*/
-        int mas12[]=new int[12];
+        int mas12[] = new int[12];
         int mas12C[] = new int[2];//массив из двух элементов для храниия количеств положительных и отрицательных элементов
-        mas12C[0]=0;
-        mas12C[1]=0;
-        while (mas12C[0]+mas12C[1]<mas12.length){
-            int m=random.nextInt(21)-10;
-            int j=mas12C[0]+mas12C[1];
-            if (m!=0) {
+        mas12C[0] = 0;
+        mas12C[1] = 0;
+        while (mas12C[0] + mas12C[1] < mas12.length) {
+            int m = random.nextInt(21) - 10;
+            int j = mas12C[0] + mas12C[1];
+            if (m != 0) {
                 if (m < 0 && mas12C[0] < mas12.length / 2) {
                     mas12C[0]++;
                     mas12[j] = m;
@@ -251,32 +251,32 @@ public class lesson03 {
         Создать массив из n случайных целых чисел из отрезка [0;n] и вывести его на экран. Создать второй массив
         только из чётных элементов первого массива, если они там есть, и вывести его на экран.*/
         System.out.println("Введите целое число, большее трёх:");
-        while (true){
+        while (true) {
             Scanner scanner = new Scanner(System.in);
             s = scanner.next();
-            if (isNumEntered(s)){
-                if (Integer.parseInt(s)>3)
+            if (isNumEntered(s)) {
+                if (Integer.parseInt(s) > 3)
                     break;
                 else
                     System.out.println("Введённое число меньше или равно трём.");
             }
         }
-        int n=Integer.parseInt(s);
-        int mas13[]=new int[n];
-        count=0;
-        for (int i=0;i<mas13.length;i++){
-            mas13[i]=random.nextInt(n+1);
-            if (mas13[i]!=0&&mas13[i]%2==0)
+        int n = Integer.parseInt(s);
+        int mas13[] = new int[n];
+        count = 0;
+        for (int i = 0; i < mas13.length; i++) {
+            mas13[i] = random.nextInt(n + 1);
+            if (mas13[i] != 0 && mas13[i] % 2 == 0)
                 count++;
         }
         printMas(mas13);
-        if (count>0){
-            int mas13E[]=new int[count];
-            int j=0;
-            for (int i=0;i<mas13.length;i++){
-                if (mas13[i]!=0&&mas13[i]%2==0){
-                    mas13E[j]=mas13[i];
-                    if (j==mas13E.length-1)
+        if (count > 0) {
+            int mas13E[] = new int[count];
+            int j = 0;
+            for (int i = 0; i < mas13.length; i++) {
+                if (mas13[i] != 0 && mas13[i] % 2 == 0) {
+                    mas13E[j] = mas13[i];
+                    if (j == mas13E.length - 1)
                         break;
                     j++;
                 }
@@ -289,25 +289,78 @@ public class lesson03 {
 
         //=======================МНОГОМЕРНЫЕ МАССИВЫ==============================
         /*1) Создать двумерный массив из 8 строк по 5 столбцов в каждой из случайных целых чисел из отрезка [10;99]. Вывести массив на экран.*/
-        int masMNG[][] = new int[8][5];
-        for (int i = 0; i < masMNG.length; i++) {
-            for (int j = 0; j < masMNG[i].length; j++) {
-                masMNG[i][j] = 10 + (int) (Math.random() * 90);
-                System.out.print(masMNG[i][j] + " ");
+        int masMNG1[][] = new int[8][5];
+        for (int i = 0; i < masMNG1.length; i++) {
+            for (int j = 0; j < masMNG1[i].length; j++) {
+                masMNG1[i][j] = 10 + (int) (Math.random() * 90);
+                System.out.print(masMNG1[i][j] + " ");
             }
             System.out.println();
         }
+        System.out.println("------------------------");
 
         /*2) Создать двумерный массив из 5 строк по 8 столбцов в каждой из случайных целых чисел из отрезка [-99;99].
         Вывести массив на экран. После на отдельной строке вывести на экран значение максимального элемента этого
         массива (его индекс не имеет значения).*/
+        int masMNG2[][] = masTwoDim(5, 8, 199, -99);
+        maxValue = -1000;
+        for (int i = 0; i < masMNG2.length; i++) {
+            for (int j = 0; j < masMNG2[i].length; j++)
+                if (masMNG2[i][j] > maxValue)
+                    maxValue = masMNG2[i][j];
+        }
+        System.out.println("Максимальный элемент массива:" + maxValue);
+        System.out.println("------------------------");
 
+        /*3) Cоздать двумерный массив из 7 строк по 4 столбца в каждой из случайных целых чисел из отрезка [-5;5].
+        Вывести массив на экран. Определить и вывести на экран индекс строки с наибольшим по модулю произведением элементов.
+        Если таких строк несколько, то вывести индекс первой встретившейся из них.*/
+        int masMNG3[][] = masTwoDim(7, 4, 11, -5);
+        maxValue = -1;
+        maxIndex = 0;
+        for (int i = 0; i < masMNG3.length; i++) {
+            int k = 1;
+            for (int j = 0; j < masMNG3[i].length; j++)
+                k = Math.abs(k * masMNG3[i][j]);
+            if (k > maxValue) {
+                maxValue = k;
+                maxIndex = i;
+            }
+        }
+        System.out.println("Индекс строки с наибольшим по модулю произведением элементов(" + maxValue + "): " + maxIndex);
+        System.out.println("------------------------");
+
+        /*4) Создать двумерный массив из 6 строк по 7 столбцов в каждой из случайных целых чисел из отрезка [0;9].
+        Вывести массив на экран. Преобразовать массив таким образом, чтобы на первом месте в каждой строке стоял её наибольший элемент.
+        При этом изменять состав массива нельзя, а можно только переставлять элементы в рамках одной строки.
+        Порядок остальных элементов строки не важен (т.е. можно соврешить только одну перестановку, а можно отсортировать
+        по убыванию каждую строку). Вывести преобразованный массив на экран.*/
+        System.out.println("Исходный двумерный массив:");
+        int masMNG4[][] = masTwoDim(6, 7, 10, 0);
+        for (int i = 0; i < masMNG4.length; i++)
+            for (int j = 0; j < masMNG4[i].length; j++) {
+                for (int l = j + 1; l < masMNG4[i].length; l++) {
+                    if (masMNG4[i][l] > masMNG4[i][j]) {
+                        int k = masMNG4[i][j];
+                        masMNG4[i][j] = masMNG4[i][l];
+                        masMNG4[i][l] = k;
+                    }
+                }
+            }
+        System.out.println("Упорядоченный по строкам двумерный массив:");
+        printMasTwoDim(masMNG4);
+        System.out.println("------------------------");
+
+        /*5) Для проверки остаточных знаний учеников после летних каникул, учитель младших классов решил начинать каждый
+        урок с того, чтобы задавать каждому ученику пример из таблицы умножения, но в классе 15 человек, а примеры
+        среди них не должны повторяться. В помощь учителю напишите программу, которая будет выводить на экран
+        15 случайных примеров из таблицы умножения (от 2*2 до 9*9, потому что задания по умножению
+        на 1 и на 10 — слишком просты). При этом среди 15 примеров не должно быть повторяющихся (примеры 2*3 и 3*2 и им
+        подобные пары считать повторяющимися).*/
 
     }
 
     //=======================дополнительные методы==============================
-    //метод вывода на экран одномерного массива int
-
     //метод вывода на экран одномерного массива int
     public static void printMas(int mas[]) {
         for (int i = 0; i < mas.length; i++)
@@ -323,15 +376,39 @@ public class lesson03 {
     }
 
     //метод проверяет является ли введенная строка положительным числом
-    public static boolean isNumEntered(String s){
-        Boolean f=true;
-        for (int i=0;i<s.length();i++){
-            if(!"1234567890".contains(Character.toString(s.charAt(i)))){
-                f=false;
+    public static boolean isNumEntered(String s) {
+        Boolean f = true;
+        for (int i = 0; i < s.length(); i++) {
+            if (!"1234567890".contains(Character.toString(s.charAt(i)))) {
+                f = false;
                 System.out.println("Введеная строка не является положительным числом, попробуйте снова.");
                 break;
             }
         }
         return f;
+    }
+
+    //создание и печать двумерного массива
+    public static int[][] masTwoDim(int n, int m, int base, int diff) {
+        Random random = new Random();
+        int mas[][] = new int[n][m];
+        for (int i = 0; i < mas.length; i++) {
+            for (int j = 0; j < mas[i].length; j++) {
+                mas[i][j] = random.nextInt(base) + diff;
+                System.out.print(mas[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return mas;
+    }
+
+    //только печать двумерного массива
+    public static void printMasTwoDim(int mas[][]) {
+        for (int i = 0; i < mas.length; i++) {
+            for (int j = 0; j < mas[i].length; j++) {
+                System.out.print(mas[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
 }
